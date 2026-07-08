@@ -330,9 +330,12 @@
     function randomPos(){
       var hero = container.closest('.hero');
       var rect = hero.getBoundingClientRect();
-      var pad = 60;
-      var x = pad + Math.random()*(Math.max(rect.width - pad*2, 100));
-      var y = pad + Math.random()*(Math.max(rect.height - pad*2, 100));
+      var pad = 50;
+      var isNarrow = rect.width < 900;
+      var xMin = isNarrow ? pad : rect.width * 0.54;
+      var xMax = rect.width - pad;
+      var x = xMin + Math.random()*Math.max(xMax - xMin, 100);
+      var y = pad + Math.random()*Math.max(rect.height - pad*2, 100);
       return {x: x, y: y};
     }
     function showNext(){
