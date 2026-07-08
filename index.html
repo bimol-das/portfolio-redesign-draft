@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <title>DRAFT — bimoltheanalyst.com redesign concept</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-dark:#262d3a;
+    --bg-darker:#1e242c;
+    --green:#00c362;
+    --green2:#17b66a;
+    --text-light:#f1f2f3;
+          --text-muted:#aab2bd;
+      }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Inter',sans-serif; background:var(--bg-dark); color:var(--text-light); line-height:1.5;}
+  h1,h2,h3{font-family:'Poppins',sans-serif;}
+  .draft-banner{position:sticky; top:0; z-index:999; background:#ffb020; color:#1e242c; text-align:center; font-weight:700; padding:8px; font-size:14px; letter-spacing:.3px;}
+    .new-tag{display:inline-block; background:var(--green); color:#0b1a12; font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px; margin-left:8px; vertical-align:middle;}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 60px; background:var(--bg-darker); position:sticky; top:37px; z-index:998;}
+  nav .logo{font-family:'Poppins',sans-serif; font-weight:700; font-size:20px;}
+  nav .logo span{color:var(--green);}
+  nav ul{list-style:none; display:flex; gap:32px;}
+  nav a{color:var(--text-light); text-decoration:none; font-size:15px; font-weight:500;}
+  nav .cta-btn{background:var(--green); color:#0b1a12; padding:9px 18px; border-radius:6px; font-weight:600; text-decoration:none; font-size:14px;}
+  section{padding:80px 60px;}
+  .hero{display:flex; align-items:center; justify-content:space-between; gap:40px; padding-top:70px;}
+  .hero-text{max-width:560px;}
+      .hero-text .eyebrow{color:var(--green); font-weight:600; font-size:15px;}
+  .hero-text h1{font-size:44px; font-weight:800; margin:14px 0; line-height:1.2;}
+  .hero-text h1 .accent{color:var(--green);}
+  .hero-text p{color:var(--text-muted); font-size:16px; margin-bottom:26px;}
+  .badges{display:flex; gap:10px; margin-bottom:24px;}
+  .badge{border:1px solid var(--green); color:var(--green); padding:5px 14px; border-radius:20px; font-size:13px; font-weight:600;}
+  .btn-row{display:flex; gap:16px;}
+  .btn-primary{background:var(--green); color:#0b1a12; padding:13px 26px; border-radius:6px; text-decoration:none; font-weight:700;}
+  .btn-secondary{border:1px solid var(--text-muted); color:var(--text-light); padding:13px 26px; border-radius:6px; text-decoration:none; font-weight:600;}
+  .hero img{max-width:380px; border-radius:12px;}
+  .trust-strip{background:var(--bg-darker); padding:30px 60px; text-align:center;}
+  .trust-strip p{color:var(--text-muted); font-size:13px; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px;}
+  .trust-logos{display:flex; justify-content:center; gap:50px; flex-wrap:wrap; font-family:'Poppins',sans-serif; font-weight:600; font-size:18px; color:var(--text-muted);}
+  h2.section-title{font-size:32px; text-align:center; margin-bottom:8px;}
+  h2.section-title .accent{color:var(--green);}
+  .section-sub{text-align:center; color:var(--text-muted); max-width:560px; margin:0 auto 46px;}
+      .services-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .service-card{background:var(--bg-darker); border:1px solid #333c4a; border-radius:12px; padding:28px 22px;}
+  .service-card .icon{width:44px; height:44px; border-radius:10px; background:rgba(0,195,98,.15); color:var(--green); display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:16px;}
+  .service-card h3{font-size:17px; margin-bottom:10px;}
+  .service-card p{color:var(--text-muted); font-size:14px; margin-bottom:14px;}
+  .service-card a{color:var(--green); font-size:13px; font-weight:600; text-decoration:none;}
+  .case-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+      .case-card{background:var(--bg-darker); border-radius:12px; overflow:hidden; border:1px solid #333c4a;}
+  .case-card .thumb{height:120px; background:linear-gradient(135deg,#17b66a55,#00c36222);}
+  .case-card .body{padding:20px;}
+  .case-card h3{font-size:15px; margin-bottom:10px;}
+  .case-card a{color:var(--green); font-size:13px; text-decoration:none; font-weight:600;}
+  .newsletter{background:linear-gradient(135deg,#17351f,#1e242c); border-radius:16px; padding:50px; text-align:center; margin:0 60px;}
+  .newsletter h2{font-size:28px; margin-bottom:10px;}
+  .newsletter p{color:var(--text-muted); margin-bottom:26px; max-width:520px; margin-left:auto; margin-right:auto;}
+  .newsletter-form{display:flex; justify-content:center; gap:10px; flex-wrap:wrap;}
+  .newsletter-form input{padding:14px 16px; border-radius:6px; border:1px solid #3a4354; background:#131820; color:#fff; width:300px; font-size:14px;}
+    .newsletter-form button{background:var(--green); color:#0b1a12; border:none; padding:14px 24px; border-radius:6px; font-weight:700; cursor:pointer; font-size:14px;}
+  .newsletter .fine{color:var(--text-muted); font-size:12px; margin-top:14px;}
+  .cert-strip{display:flex; justify-content:center; gap:16px; flex-wrap:wrap;}
+  .cert-pill{border:1px solid var(--green); color:var(--green); padding:8px 20px; border-radius:20px; font-size:14px; font-weight:600;}
+  .testimonials{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
+  .t-card{background:var(--bg-darker); border-radius:12px; padding:26px; border:1px solid #333c4a;}
+  .t-card p{color:var(--text-muted); font-size:14px; margin-bottom:14px; font-style:italic;}
+  .t-card .who{font-weight:600; font-size:14px;}
+  footer{text-align:center; padding:40px; color:var(--text-muted); font-size:13px; background:var(--bg-darker);}
+  .section-alt{background:var(--bg-darker);}
+</style>
+    </head>
+    <body>
+      <div class="draft-banner">⚠ DESIGN DRAFT — PREVIEW ONLY</div>
+      <nav>
+        <div class="logo">bimolthe<span>analyst</span></div>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#services">Services <span class="new-tag">NEW</span></a></li>
+          <li><a href="#work">Case Studies</a></li>
+          <li><a href="#">Insights</a></li>
+          <li><a href="#newsletter">Newsletter <span class="new-tag">NEW</span></a></li>
+        </ul>
+        <a class="cta-btn" href="#contact">Work With Me</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <div class="eyebrow">DATA ANALYTICS &amp; BI CONSULTANT</div>
+          <h1>I help businesses turn <span class="accent">messy data</span> into clear decisions</h1>
+      <div class="badges">
+        <span class="badge">CBAP</span><span class="badge">PMP</span><span class="badge">PL-300</span>
+      </div>
+      <p>5+ years building dashboards, automations, and AI-driven analytics for companies across the US, Bangladesh, and Nepal. Now taking on select freelance and consulting projects alongside my full-time work.</p>
+          <div class="btn-row">
+            <a class="btn-primary" href="#">Work With Me</a>
+        <a class="btn-secondary" href="#">Download Resume</a>
+          </div>
+        </div>
+        <img src="https://bimoltheanalyst.com/wp-content/uploads/2026/02/Hero-Image2.png" alt="hero">
+      </section>
+
+      <div class="trust-strip">
+        <p>Experience across teams at</p>
+        <div class="trust-logos">
+          <span>Pathao</span><span>Grameenphone</span><span>Shoe Haven Inc.</span>
+    </div>
+  </div>
+
+  <section id="services">
+    <h2 class="section-title">What I <span class="accent">Offer</span> <span class="new-tag">NEW SECTION</span></h2>
+    <p class="section-sub">Productized services designed to fit around a busy schedule — clear scope, clear price, clear timeline.</p>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="icon">&#9702;</div>
+            <h3>BI Dashboard Build</h3>
+        <p>A Power BI / Tableau dashboard built from your raw data, delivered in 1–2 weeks.</p>
+            <a href="#">Learn more →</a>
+          </div>
+          <div class="service-card">
+            <div class="icon">&#9702;</div>
+            <h3>Data Audit Sprint</h3>
+        <p>A fixed-scope review of your reporting stack with a prioritized improvement roadmap.</p>
+        <a href="#">Learn more →</a>
+      </div>
+      <div class="service-card">
+            <div class="icon">&#9702;</div>
+            <h3>Automation &amp; AI Add-ons</h3>
+            <p>Automate recurring reports and add lightweight AI/ML features to existing dashboards.</p>
+            <a href="#">Learn more →</a>
+          </div>
+          <div class="service-card">
+            <div class="icon">&#9702;</div>
+            <h3>Mentorship &amp; Training</h3>
+            <p>1:1 portfolio reviews and SQL/Power BI coaching for aspiring analysts.</p>
+        <a href="#">Learn more →</a>
+      </div>
+    </div>
+      </section>
+
+      <section class="section-alt" id="work">
+        <h2 class="section-title">Recent <span class="accent">Case Studies</span></h2>
+        <p class="section-sub">A sample of past project work (kept from your current site).</p>
+    <div class="case-grid">
+            <div class="case-card"><div class="thumb"></div><div class="body"><h3>SQL-Driven Insights from Web &amp; Transactional Data</h3><a href="#">View Details →</a></div></div>
+      <div class="case-card"><div class="thumb"></div><div class="body"><h3>American Energy Market Regulatory (AEMR) Case Study</h3><a href="#">View Details →</a></div></div>
+            <div class="case-card"><div class="thumb"></div><div class="body"><h3>ChemCorp Sales &amp; Profitability Analysis</h3><a href="#">View Details →</a></div></div>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="newsletter">
+      <h2>Get Data &amp; BI insights in your inbox <span class="new-tag">NEW</span></h2>
+      <p>Short, practical breakdowns on BI, automation, and AI — one email, twice a month. No spam.</p>
+            <div class="newsletter-form">
+              <input type="email" placeholder="you@example.com">
+              <button>Subscribe →</button>
+            </div>
+            <div class="fine">Unsubscribe anytime. Powered by [your chosen provider — Mailchimp / Kit / Beehiiv]</div>
+          </div>
+        </section>
+
+        <section class="section-alt">
+          <h2 class="section-title">My <span class="accent">Certifications</span></h2>
+          <div class="cert-strip">
+            <span class="cert-pill">CBAP</span>
+            <span class="cert-pill">PMP</span>
+            <span class="cert-pill">PL-300</span>
+            <span class="cert-pill">MS Data Science — Trine University</span>
+            <span class="cert-pill">BS Statistics — University of Dhaka</span>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">What People <span class="accent">Say</span> <span class="new-tag">NEW SECTION</span></h2>
+    <p class="section-sub">Placeholder — swap in real quotes from managers, clients, or colleagues once collected.</p>
+          <div class="testimonials">
+            <div class="t-card"><p>"Add a short quote from a manager or client about working with Bimol here."</p><div class="who">— Name, Title / Company</div></div>
+            <div class="t-card"><p>"Add a second testimonial — e.g. about a dashboard project or analysis result."</p><div class="who">— Name, Title / Company</div></div>
+          </div>
+        </section>
+
+        <footer>
+          DRAFT PREVIEW · © bimoltheanalyst — this is a design concept only
+  </footer>
+</body>
+</html>
