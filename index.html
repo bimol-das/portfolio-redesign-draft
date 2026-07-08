@@ -34,7 +34,7 @@
   section{padding:100px 60px; position:relative; max-width:1300px; margin:0 auto;}
   .fade{opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);}
   .fade.in{opacity:1; transform:none;}
-  .hero{display:flex; align-items:center; justify-content:space-between; gap:40px; padding-top:80px; min-height:80vh;}
+  .hero{display:flex; align-items:center; justify-content:space-between; gap:40px; padding-top:80px; min-height:80vh; position:relative;}
   .hero-text{max-width:580px; position:relative; z-index:1;}
   .avail-badge{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--border); background:var(--bg-card); padding:7px 14px; border-radius:100px; font-size:13px; color:var(--text-muted); margin-bottom:18px;}
   .dot{width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 0 0 rgba(0,195,98,.6); animation:pulse 2s infinite;}
@@ -107,6 +107,13 @@
     nav ul{display:none;}
     .hero{flex-direction:column;}
   }
+
+  .hero-bg-fx{position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none;}
+  .hero-grid{position:absolute; inset:-20%; background-image:linear-gradient(rgba(0,195,98,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(0,195,98,.10) 1px, transparent 1px); background-size:42px 42px; animation:heroGridMove 18s linear infinite;}
+  @keyframes heroGridMove{0%{transform:translate(0,0);} 100%{transform:translate(42px,42px);}}
+  .hero-particle{position:absolute; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); opacity:0; animation:heroFloat linear infinite;}
+  @keyframes heroFloat{0%{transform:translateY(0) scale(.6); opacity:0;} 10%{opacity:.7;} 85%{opacity:.5;} 100%{transform:translateY(-420px) scale(1); opacity:0;}}
+  .hero-bincode{position:absolute; font-family:'Courier New',monospace; font-size:13px; color:rgba(0,195,98,.35); letter-spacing:2px; animation:heroFloat linear infinite;}
 </style>
 </head>
 <body>
@@ -126,6 +133,21 @@
   </div>
 
   <section class="hero">
+    <div class="hero-bg-fx">
+      <div class="hero-grid"></div>
+      <div class="hero-particle" style="left:8%; top:75%; width:5px; height:5px; animation-duration:9s; animation-delay:0s;"></div>
+      <div class="hero-particle" style="left:18%; top:55%; width:7px; height:7px; animation-duration:12s; animation-delay:2s;"></div>
+      <div class="hero-particle" style="left:30%; top:85%; width:4px; height:4px; animation-duration:8s; animation-delay:1s;"></div>
+      <div class="hero-particle" style="left:45%; top:40%; width:6px; height:6px; animation-duration:11s; animation-delay:3.5s;"></div>
+      <div class="hero-particle" style="left:60%; top:70%; width:5px; height:5px; animation-duration:10s; animation-delay:0.5s;"></div>
+      <div class="hero-particle" style="left:72%; top:50%; width:8px; height:8px; animation-duration:13s; animation-delay:4s;"></div>
+      <div class="hero-particle" style="left:85%; top:80%; width:4px; height:4px; animation-duration:9.5s; animation-delay:2.5s;"></div>
+      <div class="hero-particle" style="left:93%; top:60%; width:6px; height:6px; animation-duration:12.5s; animation-delay:1.5s;"></div>
+      <div class="hero-bincode" style="left:12%; top:70%; animation-duration:14s; animation-delay:0s;">01</div>
+      <div class="hero-bincode" style="left:38%; top:80%; animation-duration:16s; animation-delay:3s;">10</div>
+      <div class="hero-bincode" style="left:65%; top:75%; animation-duration:15s; animation-delay:6s;">11</div>
+      <div class="hero-bincode" style="left:82%; top:68%; animation-duration:13s; animation-delay:1.5s;">00</div>
+    </div>
     <div class="glow" style="width:420px;height:420px;background:#00c362;top:-100px;left:-100px;"></div>
     <div class="hero-text fade in">
       <div class="avail-badge"><span class="dot"></span> Available for select freelance projects</div>
@@ -181,19 +203,6 @@
     </div>
   </section>
 
-  <section id="newsletter">
-    <div class="newsletter fade">
-      <div class="glow" style="width:300px;height:300px;background:#00c362;top:-80px;right:-60px;"></div>
-      <h2>Get Data &amp; BI insights in your inbox</h2>
-      <p>Short, practical breakdowns on BI, automation, and AI — one email, twice a month. No spam.</p>
-      <div class="newsletter-form">
-        <input type="email" placeholder="you@example.com">
-        <button>Subscribe →</button>
-      </div>
-      <div class="fine">Unsubscribe anytime. Powered by [your chosen provider — Mailchimp / Kit / Beehiiv]</div>
-    </div>
-  </section>
-
   <section class="section-alt">
     <h2 class="section-title fade">My <span class="accent">Certifications</span></h2>
     <div class="cert-strip fade">
@@ -211,6 +220,19 @@
     <div class="testimonials">
       <div class="t-card fade"><span class="quote-icon">"</span><p>Add a short quote from a manager or client about working with Bimol here.</p><div class="t-who"><div class="t-avatar"></div><div class="who">Name, Title / Company</div></div></div>
       <div class="t-card fade"><span class="quote-icon">"</span><p>Add a second testimonial — e.g. about a dashboard project or analysis result.</p><div class="t-who"><div class="t-avatar"></div><div class="who">Name, Title / Company</div></div></div>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="newsletter fade">
+      <div class="glow" style="width:300px;height:300px;background:#00c362;top:-80px;right:-60px;"></div>
+      <h2>Get Data &amp; BI insights in your inbox</h2>
+      <p>Short, practical breakdowns on BI, automation, and AI — one email, twice a month. No spam.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="you@example.com">
+        <button>Subscribe →</button>
+      </div>
+      <div class="fine">Unsubscribe anytime. Powered by [your chosen provider — Mailchimp / Kit / Beehiiv]</div>
     </div>
   </section>
 
