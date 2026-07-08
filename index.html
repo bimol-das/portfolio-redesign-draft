@@ -109,8 +109,8 @@
   }
 
   .hero-bg-fx{position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none;}
-  .hero-grid{position:absolute; inset:-20%; background-image:linear-gradient(rgba(0,195,98,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,195,98,.08) 1px, transparent 1px); background-size:42px 42px; animation:heroGridMove 18s linear infinite; opacity:.6;}
-  @keyframes heroGridMove{0%{transform:translate(0,0);} 100%{transform:translate(42px,42px);}}
+  .hero-keyword{position:absolute; font-family:'Poppins',sans-serif; font-weight:700; color:#eafff2; text-shadow:0 0 12px rgba(0,195,98,.9), 0 0 28px rgba(0,195,98,.5); opacity:0; letter-spacing:.5px; white-space:nowrap; pointer-events:none; transform:translate(-50%,-50%) scale(.7); transition:opacity .8s ease, transform .8s ease;}
+  .hero-keyword.show{opacity:.9; transform:translate(-50%,-50%) scale(1);}
   #hero-network{position:absolute; inset:0; width:100%; height:100%; display:block;}
 </style>
 </head>
@@ -132,8 +132,8 @@
 
   <section class="hero">
     <div class="hero-bg-fx">
-      <div class="hero-grid"></div>
       <canvas id="hero-network"></canvas>
+      <div class="hero-keywords"></div>
     </div>
     <div class="glow" style="width:420px;height:420px;background:#00c362;top:-100px;left:-100px;"></div>
     <div class="hero-text fade in">
@@ -317,5 +317,44 @@
   })();
   </script>
 
+
+  <script>
+  (function(){
+    var container = document.querySelector('.hero-keywords');
+    if(!container) return;
+    var words = ['Artificial Intelligence','Machine Learning','Data Analysis','Big Data','Statistics','Clustering','Algorithms'];
+    var idx = 0;
+    var el = document.createElement('div');
+    el.className = 'hero-keyword';
+    container.appendChild(el);
+    function randomPos(){
+      var hero = container.closest('.hero');
+      var rect = hero.getBoundingClientRect();
+      var pad = 60;
+      var x = pad + Math.random()*(Math.max(rect.width - pad*2, 100));
+      var y = pad + Math.random()*(Math.max(rect.height - pad*2, 100));
+      return {x: x, y: y};
+    }
+    function showNext(){
+      el.classList.remove('show');
+      setTimeout(function(){
+        var pos = randomPos();
+        var angle = (Math.random()*10 - 5);
+        el.style.left = pos.x + 'px';
+        el.style.top = pos.y + 'px';
+        el.style.fontSize = (window.innerWidth < 700 ? 15 : 19) + 'px';
+        el.style.transform = 'translate(-50%,-50%) rotate(' + angle + 'deg) scale(.7)';
+        el.textContent = words[idx % words.length];
+        idx++;
+        requestAnimationFrame(function(){
+          el.classList.add('show');
+          el.style.transform = 'translate(-50%,-50%) rotate(' + angle + 'deg) scale(1)';
+        });
+      }, 400);
+    }
+    showNext();
+    setInterval(showNext, 2600);
+  })();
+  </script>
 </body>
 </html>
