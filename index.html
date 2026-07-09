@@ -136,6 +136,23 @@ section#services{padding:64px 0;}
 .hero-keyword{position:absolute; font-family:'Poppins',sans-serif; font-weight:700; color:#eafff2; text-shadow:0 0 12px rgba(0,195,98,.9), 0 0 28px rgba(0,195,98,.5); opacity:0; letter-spacing:.5px; white-space:nowrap; pointer-events:none; transform:translate(-50%,-50%) scale(.7); transition:opacity .8s ease, transform .8s ease;}
 .hero-keyword.show{opacity:.9; transform:translate(-50%,-50%) scale(1);}
 #hero-network{position:absolute; inset:0; width:100%; height:100%; display:block;}
+
+section#how-i-work{background:#151D26; padding:88px 0;}
+.hiw-inner{max-width:1180px; margin:0 auto; padding:0 20px;}
+.hiw-header{text-align:center; max-width:650px; margin:0 auto;}
+.hiw-header h2{font-size:40px; line-height:48px; font-weight:850; color:#F4F7FB;}
+.hiw-header p{margin-top:14px; font-size:16px; line-height:26px; color:#9AA7B5;}
+.hiw-grid{margin-top:52px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+.hiw-card{min-height:230px; padding:30px; border-radius:18px; background:#1B2430; border:1px solid #2A3442;}
+.hiw-card .hiw-num{font-size:14px; font-weight:850; color:#00D47E; margin-bottom:12px;}
+.hiw-card h3{font-size:22px; line-height:30px; font-weight:850; color:#F4F7FB; margin-bottom:12px;}
+.hiw-card p{font-size:15px; line-height:25px; color:#9AA7B5;}
+@media(max-width:900px){
+section#how-i-work{padding:64px 0;}
+.hiw-header h2{font-size:32px; line-height:40px;}
+.hiw-grid{grid-template-columns:1fr; gap:18px;}
+.hiw-card{width:350px; max-width:100%; min-height:210px; padding:24px; margin:0 auto;}
+}
 </style>
 </head>
 <body>
@@ -254,6 +271,33 @@ section#services{padding:64px 0;}
 <li>Career-focused analytics coaching</li>
 </ul>
 <a href="#">Learn More →</a>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="how-i-work">
+<div class="hiw-inner">
+<div class="hiw-header fade">
+<h2>How I Work</h2>
+<p>A simple process to move from scattered data to useful business insight.</p>
+</div>
+<div class="hiw-grid">
+<div class="hiw-card fade">
+<div class="hiw-num">01</div>
+<h3>Understand</h3>
+<p>I start by learning your business problem, current reporting process, data sources, and decision-making needs.</p>
+</div>
+<div class="hiw-card fade">
+<div class="hiw-num">02</div>
+<h3>Clean &amp; Build</h3>
+<p>I clean the data, structure the logic, and build dashboards, automation, or analysis workflows that fit your goals.</p>
+</div>
+<div class="hiw-card fade">
+<div class="hiw-num">03</div>
+<h3>Deliver &amp; Explain</h3>
+<p>I deliver the final solution with clear documentation, practical recommendations, and easy-to-understand business insights.</p>
 </div>
 </div>
 </div>
